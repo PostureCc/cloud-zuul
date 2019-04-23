@@ -1,0 +1,15 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: zuul-consume
+eureka:
+  client:
+      #将该服务注册到Eureka中进行管理
+      defaultZone: http://localhost:8761/eureka/
+
+
+#logging:
+#  level:
+#    root: DEBUG

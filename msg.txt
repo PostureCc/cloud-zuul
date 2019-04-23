@@ -1,0 +1,14 @@
+eureka-service eureak服务器
+zull-service zull服务者
+	groovy包中的内容可以用于动态加载zuul的过滤器
+zull-consume zull消费者
+
+
+测试方法
+	访问http://chan:8081/zuul-consume/hello/hello或http://chan:8081/hello/test/hello可以成功表示成功
+
+测试用例
+	访问http://chan:8081/zuul-consume/hello/hello或http://chan:8081/hello/test/hello时 zull服务会自动将请求转发至8091端口 完成路由功能
+	访问http://chan:8081/routeTest时 会自动跳转到www.163.com时 zuul转发测试成功
+	访问http://chan:8081/routeTest163时 会自动跳转到www.163.com时 zuul转发测试成功
+

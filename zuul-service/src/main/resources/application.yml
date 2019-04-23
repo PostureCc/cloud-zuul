@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: zuul-service
+eureka:
+  client:
+      #将该服务注册到Eureka中进行管理
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    #hello 自定义的命名
+    api-node1:
+      #path:hello的请求全部会被转发到serviceId的服务中去
+      #规则 localhost:8081/hello/xxx 都会被转发到zuul-consume项目中去
+      path: /hello/**
+      serviceId: zuul-consume #对应的spring.application.name:value
+
+    #测试访问localhost:8081/routeTest时 跳转到163页面
+    api-node2:
+      path: /routeTest
+      url: http://www.163.com
+    #这种写法所完成的功能和上面的一致 只是写法不同
+    routeTest163:
+      url: http://www.163.com
+
+# 安全认证的配置
+management:
+  security:
+    enabled: false
+
